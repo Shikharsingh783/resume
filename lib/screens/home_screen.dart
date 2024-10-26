@@ -14,6 +14,7 @@ class HomeScreen extends StatelessWidget {
         build: (format) async => await generateResumePdf(),
         allowPrinting: true,
         allowSharing: true,
+        canChangePageFormat: true,
       ),
     );
   }

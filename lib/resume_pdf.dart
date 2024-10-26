@@ -1,21 +1,31 @@
 import 'dart:typed_data';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
-import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 
-// Function to generate PDF
 Future<Uint8List> generateResumePdf() async {
   final pdf = pw.Document();
 
-  // Specify a fallback font
+  // Load the Roboto font as bytes
+  final ByteData fontData =
+      await rootBundle.load('assets/fonts/Roboto-Regular.ttf');
+  final Uint8List fontBytes = fontData.buffer.asUint8List();
+
+  // Convert Uint8List to ByteData
+  final ByteData fontByteData = ByteData.sublistView(fontBytes);
+  final pw.Font font = pw.Font.ttf(fontByteData); // Use the loaded font
+
+  // Load the bold font as bytes
+  final ByteData fontBoldData =
+      await rootBundle.load('assets/fonts/Roboto-Bold.ttf');
+  final Uint8List fontBoldBytes = fontBoldData.buffer.asUint8List();
+
+  // Convert Uint8List to ByteData for bold font
+  final ByteData fontBoldByteData = ByteData.sublistView(fontBoldBytes);
+  final pw.Font fontBold = pw.Font.ttf(fontBoldByteData);
+
   final bulletTextStyle = pw.TextStyle(
     fontSize: 12,
-    fontFallback: [
-      pw.Font.ttf((await rootBundle
-          .loadString('assets/fonts/Roboto-Regular.ttf')) as ByteData),
-    ],
+    font: font, // Use the loaded font here
   );
 
   pdf.addPage(
