@@ -8,13 +8,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Resume Viewer'),
+        title: const Text('Resume'),
       ),
       body: PdfPreview(
         build: (format) async => await generateResumePdf(),
         allowPrinting: true,
         allowSharing: true,
         canChangePageFormat: true,
+        canChangeOrientation: true,
       ),
     );
   }

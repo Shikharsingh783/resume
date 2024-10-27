@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:pdf/widgets.dart' as pw;
 
@@ -38,7 +37,7 @@ Future<Uint8List> generateResumePdf() async {
                 ),
               ),
             ),
-            pw.SizedBox(height: 10),
+            pw.SizedBox(height: 0),
             pw.Center(
               child: pw.Text(
                 '+91 6386412496 | shikhars369@gmail.com\nlinkedin.com/in/shikhar-kumar-singh | github.com/Shikharsingh783',
@@ -46,7 +45,7 @@ Future<Uint8List> generateResumePdf() async {
                 style: pw.TextStyle(font: font),
               ),
             ),
-            pw.SizedBox(height: 20),
+            pw.SizedBox(height: 10),
             pw.Text('Education',
                 style: pw.TextStyle(
                   fontSize: 18,
@@ -65,7 +64,7 @@ Future<Uint8List> generateResumePdf() async {
               'September 2021 Onwards',
               style: pw.TextStyle(font: font),
             ),
-            pw.SizedBox(height: 20),
+            pw.SizedBox(height: 10),
             pw.Text('Technical Skills',
                 style: pw.TextStyle(fontSize: 18, font: fontBold)),
             pw.Divider(),
@@ -111,7 +110,6 @@ Future<Uint8List> generateResumePdf() async {
                 children: [
                   pw.TextSpan(
                     text: 'Developer Tools: ',
-
                     style: pw.TextStyle(
                         font: fontBold,
                         fontWeight: pw.FontWeight.bold), // Bold text
@@ -124,7 +122,7 @@ Future<Uint8List> generateResumePdf() async {
                 ],
               ),
             ),
-            pw.SizedBox(height: 20),
+            pw.SizedBox(height: 10),
             pw.Text('Projects',
                 style: pw.TextStyle(fontSize: 18, font: fontBold)),
             pw.Divider(),
@@ -133,7 +131,7 @@ Future<Uint8List> generateResumePdf() async {
                     'HIKE | Dart, Flutter, C++, Provider, Firebase (August 2024 onwards)',
                 style: bulletTextStyle),
             pw.Padding(
-              padding: pw.EdgeInsets.only(left: 20),
+              padding: const pw.EdgeInsets.only(left: 20),
               child: pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
@@ -226,15 +224,17 @@ Future<Uint8List> generateResumePdf() async {
                 ],
               ),
             ),
-            pw.SizedBox(height: 20),
+            pw.SizedBox(height: 10),
             pw.Text('Extracurricular',
                 style: pw.TextStyle(fontSize: 18, font: fontBold)),
+
+            pw.Divider(),
             pw.Text(
               'Google Crowdsource Community (Volunteer, VIT Bhopal)',
               style: pw.TextStyle(font: font),
             ),
             pw.Padding(
-              padding: pw.EdgeInsets.only(left: 20),
+              padding: const pw.EdgeInsets.only(left: 20),
               child: pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
